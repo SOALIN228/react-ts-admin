@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import FncButton from './components/fnc-button';
 import axios from 'axios';
