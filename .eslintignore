@@ -1,0 +1,7 @@
+**/*.d.ts
+.DS_Store
+node_modules
+dist
+build
+public
+README.md

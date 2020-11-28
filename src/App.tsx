@@ -17,7 +17,7 @@ const App: React.FC<unknown> = props => {
 
   const handleClick = (e: any) => {
     console.log('click ', e);
-    // setCurrent(e.key);
+    setCurrent(e.key);
   };
 
   useEffect(() => {
