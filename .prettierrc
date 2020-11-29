@@ -2,7 +2,7 @@
   "eslintIntegration": true,
   "singleQuote": true,
   "trailingComma": "es5",
-  "printWidth": 100,
+  "printWidth": 80,
   "semi": true,
   "jsxSingleQuote": true,
   "arrowParens": "avoid"

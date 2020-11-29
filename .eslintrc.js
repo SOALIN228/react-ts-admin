@@ -16,9 +16,11 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     '@typescript-eslint/indent': 'off',
+    '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-var-requires': 'off',
+    'import/no-anonymous-default-export': 'off',
     '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/member-delimiter-style': 'off',
