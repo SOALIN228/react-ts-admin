@@ -2,9 +2,9 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function (app) {
   app.use(
-    '/business',
+    '/mock1',
     createProxyMiddleware({
-      target: 'http://59.202.39.110:8300',
+      target: 'http://localhost:3001',
       changeOrigin: true,
     })
   );

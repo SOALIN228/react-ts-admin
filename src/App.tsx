@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import FncButton from './components/fnc-button';
-import { getUserInfo } from './api/user';
+import { postTest, getTest } from './api/demo';
 import { Button, Menu } from 'antd';
 import {
   MailOutlined,
@@ -25,9 +25,14 @@ const App: React.FC<unknown> = props => {
   };
 
   useEffect(() => {
-    getUserInfo().then(res => {
+    // post 请求demo
+    postTest().then(res => {
       if (res) console.log('res', res);
     });
+    // get 请求demo
+    // getTest({ id: 100, name: 'sss' }).then(res => {
+    //   if (res) console.log('res', res);
+    // });
   }, []);
 
   return (

@@ -1,3 +1,6 @@
+/**
+ * axios 请求封装，处理响应拦截和请求拦截，通用错误码处理
+ */
 import axios from 'axios';
 import { baseURL } from '../config';
 import errorInfo from '../content/errorInfo';
@@ -21,6 +24,8 @@ request.interceptors.request.use(config => {
 
 request.interceptors.response.use(
   response => {
+    console.log('response', response);
+
     // 请求成功
     if (response.status === 200) {
       // 接口正常

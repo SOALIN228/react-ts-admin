@@ -341,7 +341,7 @@ const roles = [
  * 登录
  * @param obj
  */
-export const onLogin = (obj: any) => {
+export const onLogin = obj => {
   const params = JSON.parse(obj.body);
   const u = users.find(function (item) {
     return item.username === params.username;
@@ -356,7 +356,7 @@ export const onLogin = (obj: any) => {
  * 获取所有菜单
  * @param obj
  */
-export const getMenus = (obj: any) => {
+export const getMenus = obj => {
   return { menus };
 };
 
@@ -364,7 +364,7 @@ export const getMenus = (obj: any) => {
  * 根据ID获取菜单
  * @param obj
  */
-export const getMenusById = (obj: any) => {
+export const getMenusById = obj => {
   const params = JSON.parse(obj.body);
   let res = [];
   if (params.id instanceof Array) {
@@ -384,7 +384,7 @@ export const getMenusById = (obj: any) => {
  * 添加新菜单
  * @param obj
  */
-export const addMenu = (obj: any) => {
+export const addMenu = obj => {
   const params = JSON.parse(obj.body);
   params.id = ++id_sequence;
   menus.push(params);
@@ -395,7 +395,7 @@ export const addMenu = (obj: any) => {
  * 修改菜单
  * @param obj
  */
-export const upMenu = (obj: any) => {
+export const upMenu = obj => {
   const params = JSON.parse(obj.body);
   const oldIndex = menus.findIndex(function (item) {
     return item.id === params.id;
@@ -413,7 +413,7 @@ export const upMenu = (obj: any) => {
  * 删除菜单
  * @param obj
  */
-export const delMenu = (obj: any) => {
+export const delMenu = obj => {
   const params = JSON.parse(obj.body);
   const oldIndex = menus.findIndex(function (item) {
     return item.id === params.id;
@@ -438,7 +438,7 @@ export const delMenu = (obj: any) => {
  * 根据菜单ID查询其下权限
  * @param obj
  */
-export const getPowerByMenuId = (obj: any) => {
+export const getPowerByMenuId = obj => {
   const params = JSON.parse(obj.body);
   const menuId = Number(params.menuId);
 
@@ -459,7 +459,7 @@ export const getPowerByMenuId = (obj: any) => {
  * 根据权限ID查询对应的权限
  * @param obj
  */
-export const getPowerById = (obj: any) => {
+export const getPowerById = obj => {
   const params = JSON.parse(obj.body);
   let res = [];
   if (params.id instanceof Array) {
@@ -480,7 +480,7 @@ export const getPowerById = (obj: any) => {
  * 添加权限
  * @param obj
  */
-export const addPower = (obj: any) => {
+export const addPower = obj => {
   const params = JSON.parse(obj.body);
   params.id = ++id_sequence;
   powers.push(params);
@@ -492,7 +492,7 @@ export const addPower = (obj: any) => {
  * 修改权限
  * @param obj
  */
-export const upPower = (obj: any) => {
+export const upPower = obj => {
   const params = JSON.parse(obj.body);
   const oldIndex = powers.findIndex(function (item) {
     return item.id === params.id;
@@ -510,7 +510,7 @@ export const upPower = (obj: any) => {
  * 删除权限
  * @param obj
  */
-export const delPower = (obj: any) => {
+export const delPower = obj => {
   const params = JSON.parse(obj.body);
   const oldIndex = powers.findIndex(function (item) {
     return item.id === params.id;
@@ -528,7 +528,7 @@ export const delPower = (obj: any) => {
  * 查询角色（分页,条件筛选）
  * @param obj
  */
-export const getRoles = (obj: any) => {
+export const getRoles = obj => {
   const params = JSON.parse(obj.body);
   const map = roles.filter(function (item) {
     let yeah = true;
@@ -554,7 +554,7 @@ export const getRoles = (obj: any) => {
  * 查询角色（所有）
  * @param obj
  */
-export const getAllRoles = (obj: any) => {
+export const getAllRoles = obj => {
   const params = JSON.parse(obj.body);
   let res = [];
   if (params.id instanceof Array) {
@@ -574,7 +574,7 @@ export const getAllRoles = (obj: any) => {
  * 查询角色（通过角色ID）
  * @param obj
  */
-export const getRoleById = (obj: any) => {
+export const getRoleById = obj => {
   const params = JSON.parse(obj.body);
   let res = [];
   if (params.id instanceof Array) {
@@ -594,7 +594,7 @@ export const getRoleById = (obj: any) => {
  * 添加角色
  * @param obj
  */
-export const addRole = (obj: any) => {
+export const addRole = obj => {
   const params = JSON.parse(obj.body);
   params.id = ++id_sequence;
   if (!params.menuAndPowers) {
@@ -608,7 +608,7 @@ export const addRole = (obj: any) => {
  * 修改角色
  * @param obj
  */
-export const upRole = (obj: any) => {
+export const upRole = obj => {
   const params = JSON.parse(obj.body);
   const oldIndex = roles.findIndex(function (item) {
     return item.id === params.id;
@@ -626,7 +626,7 @@ export const upRole = (obj: any) => {
  * 删除角色
  * @param obj
  */
-export const delRole = (obj: any) => {
+export const delRole = obj => {
   const params = JSON.parse(obj.body);
   const oldIndex = roles.findIndex(function (item) {
     return item.id === params.id;
@@ -643,22 +643,22 @@ export const delRole = (obj: any) => {
  * 根据角色ID查询该角色所拥有的菜单和权限详细信息
  * @param obj
  */
-export const findAllPowerByRoleId = (obj: any) => {
+export const findAllPowerByRoleId = obj => {
   const params = JSON.parse(obj.body);
   const t = roles.find(function (item) {
     return item.id === params.id;
   });
   if (t) {
-    const res = (t as any).powers.map(function (item: any) {
+    const res = t.powers.map(function (item) {
       const _menu = menus.find(function (v) {
         return v.id === item.menuId;
       });
-      const _powers = item.powers.map(function (v: any) {
+      const _powers = item.powers.map(function (v) {
         return powers.find(function (p) {
           return p.id === v;
         });
       });
-      (_menu as any).powers = _powers.filter(function (item: any) {
+      _menu.powers = _powers.filter(function (item) {
         return item.conditions === 1;
       });
       return _menu;
@@ -673,14 +673,14 @@ export const findAllPowerByRoleId = (obj: any) => {
  * 获取所有的菜单及权限数据 - 为了构建PowerTree组件
  * @param obj
  */
-export const getAllMenusAndPowers = (obj: any) => {
+export const getAllMenusAndPowers = obj => {
   const params = JSON.parse(obj.body);
   const res = menus.map(function (item) {
     const _menu = item;
     const _powers = powers.filter(function (v) {
       return v.menu === item.id && v.conditions === 1;
     });
-    (_menu as any).powers = _powers;
+    _menu.powers = _powers;
     return _menu;
   });
   return res;
@@ -690,17 +690,17 @@ export const getAllMenusAndPowers = (obj: any) => {
  * 给指定角色分配菜单和权限
  * @param obj
  */
-export const setPowersByRoleId = (obj: any) => {
+export const setPowersByRoleId = obj => {
   const params = JSON.parse(obj.body);
   const oldIndex = roles.findIndex(function (item) {
     return item.id === params.id;
   });
   if (oldIndex !== -1) {
-    const pow = params.menus.map(function (item: any) {
+    const pow = params.menus.map(function (item) {
       return { menuId: item, powers: [] };
     });
     // 将每一个权限id归类到对应的菜单里
-    params.powers.forEach(function (ppItem: any) {
+    params.powers.forEach(function (ppItem) {
       // 通过权限id查询该权限对象
       const thePowerData = powers.find(function (pItem) {
         return pItem.id === ppItem;
@@ -708,7 +708,7 @@ export const setPowersByRoleId = (obj: any) => {
       if (thePowerData) {
         const theMenuId = thePowerData.menu;
         if (theMenuId) {
-          const thePow = pow.find(function (powItem: any) {
+          const thePow = pow.find(function (powItem) {
             return powItem.menuId === theMenuId;
           });
           if (thePow) {
@@ -729,7 +729,7 @@ export const setPowersByRoleId = (obj: any) => {
  * 条件分页查询用户列表
  * @param obj
  */
-export const getUserList = (obj: any) => {
+export const getUserList = obj => {
   const params = JSON.parse(obj.body);
   const map = users.filter(function (item) {
     let yeah = true;
@@ -751,7 +751,7 @@ export const getUserList = (obj: any) => {
  * 添加用户
  * @param obj
  */
-export const addUser = (obj: any) => {
+export const addUser = obj => {
   const params = JSON.parse(obj.body);
   params.id = ++id_sequence;
   users.push(params);
@@ -762,7 +762,7 @@ export const addUser = (obj: any) => {
  * 添加用户
  * @param obj
  */
-export const upUser = (obj: any) => {
+export const upUser = obj => {
   const params = JSON.parse(obj.body);
   const oldIndex = users.findIndex(function (item) {
     return item.id === params.id;
@@ -780,7 +780,7 @@ export const upUser = (obj: any) => {
  * 删除用户
  * @param obj
  */
-export const delUser = (obj: any) => {
+export const delUser = obj => {
   const params = JSON.parse(obj.body);
   const oldIndex = users.findIndex(function (item) {
     return item.id === params.id;
