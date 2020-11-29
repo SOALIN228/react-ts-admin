@@ -15,6 +15,7 @@
     "axios": "^0.21.0",
     "craco-less": "^1.17.0",
     "http-proxy-middleware": "^1.0.6",
+    "mockjs": "^1.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
@@ -58,6 +59,7 @@
     ]
   },
   "devDependencies": {
+    "@types/mockjs": "^1.0.3",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.3.0",

@@ -21,8 +21,8 @@ const App: React.FC<unknown> = props => {
   };
 
   useEffect(() => {
-    axios.post('/business/dt/get', {}).then(res => {
-      console.log('res', res);
+    axios.post('/mock/getUserInfo', {}).then(res => {
+      console.log('res', res.data);
     });
   }, []);
 
