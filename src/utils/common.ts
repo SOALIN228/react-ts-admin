@@ -27,3 +27,16 @@ export function urlParams(params: UrlParamsProps) {
     return params.key ? obj[params.key] : obj;
   }
 }
+
+/**
+ * 字符串解密
+ * 对应上面的字符串加密方法
+ * @param code - 待处理的字符串
+ */
+export function unCompile(code: string): string {
+  let c = String.fromCharCode(code.charCodeAt(0) - code.length);
+  for (let i = 1; i < code.length; i++) {
+    c += String.fromCharCode(code.charCodeAt(i) - c.charCodeAt(i - 1));
+  }
+  return c;
+}

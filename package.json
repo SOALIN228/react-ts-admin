@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@craco/craco": "^5.8.0",
+    "@loadable/component": "^5.14.1",
     "@rematch/core": "^2.0.0-next.6",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
@@ -15,11 +16,13 @@
     "antd": "^4.8.5",
     "axios": "^0.21.0",
     "craco-less": "^1.17.0",
+    "history": "^5.0.0",
     "http-proxy-middleware": "^1.0.6",
     "mockjs": "^1.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "typescript": "^4.1.2",
     "web-vitals": "^0.2.4"
@@ -37,7 +40,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,css,less}": [
+    "src/**/*.{js,jsx,ts,tsx}": [
       "eslint --fix",
       "prettier --write"
     ]
@@ -61,8 +64,11 @@
     ]
   },
   "devDependencies": {
+    "@types/history": "^4.7.8",
+    "@types/loadable__component": "^5.13.1",
     "@types/mockjs": "^1.0.3",
     "@types/react-redux": "^7.1.11",
+    "@types/react-router-dom": "^5.1.6",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.3.0",
