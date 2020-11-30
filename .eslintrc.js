@@ -1,6 +1,10 @@
 module.exports = {
   root: true,
-  extends: ['react-app', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
+  extends: [
+    'react-app',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+  ],
   parserOptions: {
     ecmaVersion: 2017,
     sourceType: 'module',

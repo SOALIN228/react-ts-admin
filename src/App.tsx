@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import FncButton from './components/fnc-button';
 import { postTest, getTest } from './api/demo';
+import { connect } from 'react-redux';
+import { RootState, Dispatch } from './store';
 import { Button, Menu } from 'antd';
 import {
   MailOutlined,
@@ -11,7 +13,16 @@ import './App.less';
 
 const { SubMenu } = Menu;
 
-const App: React.FC<unknown> = props => {
+const mapState = (state: RootState) => ({
+  username: state.app,
+});
+const mapDispatch = (dispatch: Dispatch) => ({});
+
+type StateProps = ReturnType<typeof mapState>;
+type DispatchProps = ReturnType<typeof mapDispatch>;
+type Props = StateProps & DispatchProps;
+
+const App: React.FC<Props> = props => {
   const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     console.log('e.target', e.target);
     console.log('e.currentTarget', e.currentTarget);
@@ -74,4 +85,4 @@ const App: React.FC<unknown> = props => {
   );
 };
 
-export default App;
+export default connect(mapState, mapDispatch)(App);

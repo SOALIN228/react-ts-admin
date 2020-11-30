@@ -20,7 +20,7 @@ export function urlParams(params: UrlParamsProps) {
   if (queryStr[1]) {
     const paramsObj = queryStr[1].split('&');
     const obj: any = {};
-    paramsObj.map(item => {
+    paramsObj.forEach(item => {
       const _itme = item.split('=');
       obj[_itme[0]] = decodeURIComponent(_itme[1]);
     });
