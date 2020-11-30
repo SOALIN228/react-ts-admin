@@ -10,12 +10,22 @@ export const postTest = (obj: any) => {
     date: Random.now('hour'),
   };
 
-  return Mock.mock(template);
+  return Mock.mock({
+    success: true,
+    code: '200',
+    message: 'success',
+    data: template,
+  });
 };
 
 export const getTest = (obj: any) => {
   const Random = Mock.Random;
   console.log('obj', obj);
   const params = urlParams({ href: obj.url });
-  return Mock.mock(params);
+  return Mock.mock({
+    success: true,
+    code: '200',
+    message: 'success',
+    data: params,
+  });
 };
