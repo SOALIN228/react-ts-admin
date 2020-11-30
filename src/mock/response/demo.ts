@@ -2,19 +2,13 @@ import Mock from 'mockjs';
 import { urlParams } from '../../utils/common';
 
 export const postTest = (obj: any) => {
-  const Random = Mock.Random;
-
-  const template = {
-    'str|2-4': 'string',
-    email: Mock.mock('@email'),
-    date: Random.now('hour'),
-  };
+  const params = JSON.parse(obj.body);
 
   return Mock.mock({
     success: true,
     code: '200',
     message: 'success',
-    data: template,
+    data: params,
   });
 };
 

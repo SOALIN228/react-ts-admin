@@ -1,12 +1,10 @@
 import axios from '../utils/request';
 
-interface UserInfo {
-  str: string;
-  date: string;
-  email: string;
+export interface UserInfo {
+  username: string;
 }
 
-export const postTest = (params: {} = {}) => {
+export const postTest = (params: { username: string }) => {
   return axios
     .request<any, UserInfo | void>({
       url: '/mock/postTest',
